@@ -1,0 +1,173 @@
+@font-face {
+	font-family: Light;
+	src: url(../public/fonts/Inter-Light.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: Regular;
+	src: url(../public/fonts/Inter-Regular.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: Medium;
+	src: url(../public/fonts/Inter-Medium.ttf) format("truetype");
+}
+
+/* Default styles */
+
+body {
+	font-family: Regular;
+	margin: 0;
+	background-color: var(--background-color);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: var(--primary-text-color);
+	font-family: Light;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0px;
+}
+
+h2 {
+	font-family: Regular;
+	font-weight: 400;
+	font-size: 20px;
+	letter-spacing: 0.1em;
+	color: var(--primary-text-color);
+}
+
+h3 {
+	font-family: Medium;
+	font-weight: 500;
+	font-size: 14px;
+	letter-spacing: 0.1em;
+	color: var(--primary-text-color);
+}
+
+p {
+	font-family: Light;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 140%;
+	color: var(--primary-text-color);
+}
+
+span {
+	font-family: Medium;
+	font-weight: 500;
+	font-size: 12px;
+	letter-spacing: 0.1em;
+	color: var(--secondary-text-color);
+}
+
+.page-wrapper {
+	width: 100%;
+	max-width: 1000px;
+	padding: 0px 15px;
+	box-sizing: border-box;
+}
+
+/* Main page */
+.header {
+	height: 96px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 28px 0px 24px;
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	column-gap: 16px;
+}
+
+.nav-menu {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 40px;
+
+	font-size: 16px;
+	letter-spacing: 0.1em;
+}
+
+.banner {
+	background-color: grey;
+	height: 320px;
+	width: 100%;
+}
+
+.banner img {
+	object-fit: cover;
+	width: inherit;
+	height: inherit;
+	object-position: 0 -15;
+}
+
+.about-us {
+	max-width: 600px;
+	text-align: left;
+	margin: 40px 0px;
+}
+
+div p {
+	margin: 8px;
+}
+
+.product {
+	width: 180px;
+	height: 320px;
+    
+}
+
+.content h2 {
+	margin-bottom: 20px;
+}
+
+.product img {
+	height: 240px;
+	object-fit: cover;
+	width: inherit;
+}
+
+.product h3 {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.product-colors {
+	display: flex;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.product-color {
+	height: 12px;
+	width: 12px;
+	border-radius: 100%;
+	background-color: red;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

@@ -79,8 +79,7 @@ span {
 
 .page-wrapper {
 	width: 100%;
-	max-width: 1000px;
-	padding: 0px 15px;
+	max-width: 1072px;
 	box-sizing: border-box;
 }
 
@@ -90,7 +89,8 @@ span {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 28px 0px 24px;
+	padding: 28px 36px 26px;
+	box-sizing: border-box;
 }
 
 .menu {
@@ -135,7 +135,6 @@ div p {
 .product {
 	width: 180px;
 	height: 320px;
-    
 }
 
 .content h2 {
@@ -155,8 +154,8 @@ div p {
 
 .product-colors {
 	display: flex;
-    gap: 12px;
-    margin-top: 6px;
+	gap: 12px;
+	margin-top: 6px;
 }
 
 .product-color {
@@ -167,7 +166,13 @@ div p {
 }
 
 .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
 }
+
+.content {
+	padding: 0px 36px;
+	box-sizing: border-box;
+}
+

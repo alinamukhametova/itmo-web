@@ -28,6 +28,7 @@ body {
 
 ul {
 	list-style-type: none;
+	padding-inline-start: 0px;
 }
 
 a {
@@ -41,7 +42,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
 	margin: 0px;
 }
 
@@ -93,6 +95,10 @@ span {
 	box-sizing: border-box;
 }
 
+.header-mob {
+	display: none;
+}
+
 .menu {
 	display: flex;
 	align-items: center;
@@ -129,7 +135,7 @@ span {
 }
 
 div p {
-	margin: 8px;
+	margin: 8px 0px;
 }
 
 .product {
@@ -168,7 +174,7 @@ div p {
 .product-list {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 16px;
+	gap: 20px;
 }
 
 .content {
@@ -176,3 +182,103 @@ div p {
 	box-sizing: border-box;
 }
 
+@media screen and (max-width: 1040px) {
+	.nav-menu {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		column-gap: 24px;
+
+		font-size: 16px;
+		letter-spacing: 0.1em;
+	}
+
+	.page-wrapper {
+		width: 100%;
+		max-width: 720px;
+		box-sizing: border-box;
+	}
+
+	.product-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 40px;
+	}
+}
+
+@media screen and (max-width: 710px) {
+	.header {
+		display: none;
+	}
+	.header-mob {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 16px 36px 12px;
+	}
+	
+	.page-wrapper {
+		width: 100%;
+		max-width: 442px;
+		box-sizing: border-box;
+	}
+
+	.product-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+
+	.banner {
+		height: 180px;
+		width: 100%;
+	}
+	
+	.banner img {
+		object-fit: cover;
+		width: inherit;
+		height: inherit;
+		object-position: 0 -15;
+	}
+
+	h2 {
+		font-family: Regular;
+		font-weight: 400;
+		font-size: 16px;
+		letter-spacing: 0.1em;
+		color: var(--primary-text-color);
+	}
+	
+	h3 {
+		font-family: Medium;
+		font-weight: 500;
+		font-size: 12px;
+		letter-spacing: 0.1em;
+		color: var(--primary-text-color);
+	}
+	p {
+		font-family: Light;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 140%;
+		color: var(--primary-text-color);
+	}
+
+	.about-us {
+		max-width: 370px;
+		text-align: left;
+		margin: 20px 0px;
+	}
+
+	.product {
+		width: 160px;
+		height: 290px;
+	}
+
+	.product img {
+		height: 210px;
+		object-fit: cover;
+		width: inherit;
+	}
+}

@@ -14,7 +14,6 @@
 }
 
 /* Default styles */
-
 body {
 	font-family: Regular;
 	margin: 0;
@@ -24,6 +23,15 @@ body {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+form input {
+	display: block;
 }
 
 ul {
@@ -217,7 +225,7 @@ div p {
 		align-items: center;
 		padding: 16px 36px 12px;
 	}
-	
+
 	.page-wrapper {
 		width: 100%;
 		max-width: 442px;
@@ -234,7 +242,7 @@ div p {
 		height: 180px;
 		width: 100%;
 	}
-	
+
 	.banner img {
 		object-fit: cover;
 		width: inherit;
@@ -249,7 +257,7 @@ div p {
 		letter-spacing: 0.1em;
 		color: var(--primary-text-color);
 	}
-	
+
 	h3 {
 		font-family: Medium;
 		font-weight: 500;
@@ -281,4 +289,24 @@ div p {
 		object-fit: cover;
 		width: inherit;
 	}
+}
+
+.single-card-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.card-control {
+	margin-top: 20px;
+	padding: 10px 4px;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	gap: 16px;
+}
+
+.preview {
+	height: 180px;
 }

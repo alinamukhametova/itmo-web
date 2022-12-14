@@ -8,6 +8,7 @@
 	    $name = $row["name"];
 	    $cost = $row["cost"];
 	    $url = $row["picture_url"];
+	    $id = $row["id"];
 	    include("./components/product.php");
 	}
 	$mysqli->close();

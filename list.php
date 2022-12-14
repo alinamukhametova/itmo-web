@@ -17,7 +17,8 @@
 		</p>
 	</div>
 	<div class="page-wrapper content">
-		<?php require("./components/productById.php") ?>
+		<h2>Реализованные проекты</h2>
+		<?php require("./components/list.php") ?>
 	</div>
 </body>
 

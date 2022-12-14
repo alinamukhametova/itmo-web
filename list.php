@@ -4,7 +4,7 @@
 <body>
 	<?php require("./components/header.php") ?>
 	<div class="banner">
-		<img src="public/img/9568D19B-339E-4020-898A-C72D6171477F_1_105_c.jpeg" />
+		<img src="public/img/q31Dnwv6aSCklTUxPrA1-TA9MglxJzi9abkE9eJfiEOT1A8D-fJDQbOMIrE5UP0IGlXWwmenO_Y4HwXbc3g5LTzG.jpg" />
 	</div>
 	<div class="about-us">
 		<p>

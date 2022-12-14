@@ -133,7 +133,7 @@ span {
 	object-fit: cover;
 	width: inherit;
 	height: inherit;
-	object-position: 0 -15;
+	object-position: 0px -400px;
 }
 
 .about-us {

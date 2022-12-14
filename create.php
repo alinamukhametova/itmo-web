@@ -36,7 +36,10 @@
         http.onreadystatechange = function() { //Call a function when the state changes.
             if (http.readyState == 4 && http.status == 200) {
               const res = JSON.parse(http.responseText);
-              res.error && alert(res.error);
+              if (res.error) {
+                        alert(res.error)
+                        return;
+                    };
 
               const id = res;
               window.location.replace("./index.php?id="+id)

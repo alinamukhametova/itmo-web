@@ -4,14 +4,14 @@
 
 <body>
     <?php require("./components/header.php") ?>
-    <h2>Обновить мерч</h2>
+    <h2>Редактировать товар</h2>
     <form id="form" method="POST" action="endpoints/update-card.php">
         <input type="text" name="id" id="id" value="" hidden style="display:none">
         <input type="text" name="name" id="name" value="">
         <input type="number" name="cost" id="cost" value="">
         <input type="text" name="picture_url" id="picture_url" value="">
         <img class="preview"  src="" alt="photo" />
-        <button type="submit">Обновить товар</button>
+        <button type="submit">Сохранить изменения</button>
     </form>
 
 
@@ -36,7 +36,10 @@
         http.onreadystatechange = function() { //Call a function when the state changes.
             if (http.readyState == 4 && http.status == 200) {
               const res = JSON.parse(http.responseText);
-              res.error && alert(res.error);
+              if (res.error) {
+                        alert(res.error)
+                        return;
+                    };
               const id = res;
               window.location.replace("./index.php?id="+id)
             }

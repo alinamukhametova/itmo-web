@@ -11,5 +11,6 @@ $set->bind_param("sdss", $name, $cost, $picture_url,$id);
 
 $set->execute();
 
-header("Location: /itmo-web/index.php?id=" . $id);
+print json_encode($id);
+
 die();

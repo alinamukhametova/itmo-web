@@ -8,6 +8,6 @@ $link->bind_param("d", $id);
 
 $link->execute();
 
-header("Location: /itmo-web/list.php");
+print json_encode($id);
 die();
 

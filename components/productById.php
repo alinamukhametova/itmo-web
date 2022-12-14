@@ -1,27 +1,41 @@
-<div class="single-card-wrapper">
-    <?php
-    ini_set('display_errors', '1');
-    include("./config/bd.php");
-    $id = $_GET["id"];
-
-    $con = $mysqli->prepare("SELECT * FROM card WHERE id = ?");
-    $con->bind_param("d", $id);
-    $con->execute();
-    $product = $con->get_result()->fetch_array();
-
-    if (empty($product)) {
-        die("Такого товара нет");
-    }
-
-    $id = $product["id"];
-    $cost = $product["cost"];
-    $name = $product["name"];
-    $url = $product["picture_url"];
-
-    include("./components/product.php");
-    ?>
+<div class="single-card-wrapper" id="card">
+<div id="card-container"></div>
+<div class="controls">
     <div class="card-control">
-        <a href="update.php?id=<?php echo $id ?>">Обновить</a>
-        <a href="delete.php?id=<?php echo $id ?>">Удалить</a>
+        <a href="#" id="update-btn">Обновить</a>
+        <a href="#" id="delete-btn">Удалить</a>
     </div>
 </div>
+</div>
+<script>
+    const renderCard = ({
+        id,
+        picture_url,
+        name,
+        cost,
+    }) => `<a class="product" href="index.php?id=${id}">
+<img src="${picture_url}" />
+<h3>${name}</h3>
+<span>${cost} RUB</span>
+<div class="product-colors">
+    <div class="product-color"></div>
+    <div class="product-color"></div>
+    <div class="product-color"></div>
+</div>
+</a>`;
+
+const params = (new URL(location)).searchParams;
+
+    const req = new XMLHttpRequest();
+    req.responseType = 'json';
+    req.open('GET', "endpoints/get-card-by-id.php?id="+params.get("id"), true);
+    req.onload = function() {
+        const jsonResponse = req.response;
+        const root = document.getElementById("card-container");
+            root.insertAdjacentHTML("beforeend", renderCard(jsonResponse));
+
+            document.getElementById("update-btn").setAttribute("href", "update.php?id=" + params.get("id"))
+            document.getElementById("delete-btn").setAttribute("href", "delete.php?id=" + params.get("id"))
+    };
+    req.send(null);
+</script>

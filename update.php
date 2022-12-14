@@ -1,12 +1,3 @@
-<?php
-include("./config/bd.php");
-$con = $mysqli->prepare("SELECT * FROM card WHERE id = ?");
-$con->bind_param("d", $_GET["id"]);
-$con->execute();
-$product = $con->get_result()->fetch_array();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <?php require("./components/head.php") ?>
@@ -14,14 +5,61 @@ $product = $con->get_result()->fetch_array();
 <body>
     <?php require("./components/header.php") ?>
     <h2>Обновить мерч</h2>
-    <form class="form" method="POST" action="endpoints/update-card.php">
-        <input type="text" name="id" value="<?php echo $_GET["id"] ?>" hidden style="display:none">
-        <input type="text" name="name" value="<?php echo $product["name"] ?>">
-        <input type="number" name="cost" value="<?php echo $product["cost"] ?>">
-        <input type="text" name="picture_url" value="<?php echo $product["picture_url"] ?>">
-        <img class="preview"  src="<?php echo $product["picture_url"] ?>" alt="photo" />
+    <form id="form" method="POST" action="endpoints/update-card.php">
+        <input type="text" name="id" id="id" value="" hidden style="display:none">
+        <input type="text" name="name" id="name" value="">
+        <input type="number" name="cost" id="cost" value="">
+        <input type="text" name="picture_url" id="picture_url" value="">
+        <img class="preview"  src="" alt="photo" />
         <button type="submit">Обновить товар</button>
     </form>
+
+
+<script>
+     document.getElementById("form").addEventListener("submit", onSubmit, false);
+
+     function onSubmit(event){
+        event.preventDefault();
+        const {id,name,cost,picture_url} = event.target.elements;
+        sendRequest(id.value,name.value,cost.value,picture_url.value);
+     }
+
+    function sendRequest(id,name,cost,picture_url) {
+        var http = new XMLHttpRequest();
+        var url = './endpoints/update-card.php';
+        var params = `id=${id}&name=${name}&cost=${cost}&picture_url=${picture_url}`;
+
+        http.open('POST', url, true);
+
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+        http.onreadystatechange = function() { //Call a function when the state changes.
+            if (http.readyState == 4 && http.status == 200) {
+              const res = JSON.parse(http.responseText);
+              res.error && alert(res.error);
+              const id = res;
+              window.location.replace("./index.php?id="+id)
+            }
+        }
+        http.send(params);
+    }
+</script>
+
+<script>
+const params = (new URL(location)).searchParams;
+
+    const req = new XMLHttpRequest();
+    req.responseType = 'json';
+    req.open('GET', "endpoints/get-card-by-id.php?id="+params.get("id"), true);
+    req.onload = function() {
+        const res = req.response;
+        document.getElementById("id").setAttribute("value", res.id);
+        document.getElementById("cost").setAttribute("value", res.cost);
+        document.getElementById("name").setAttribute("value", res.name);
+        document.getElementById("picture_url").setAttribute("value", res.picture_url);
+    };
+    req.send(null);
+</script>
 </body>
 
 </html>

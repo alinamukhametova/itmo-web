@@ -10,5 +10,5 @@ $set->bind_param("sds", $name, $cost, $picture_url);
 $set->execute();
 $id = mysqli_insert_id($mysqli);
 
-header("Location: /itmo-web/index.php?id=" . $id);
+print json_encode($id);
 die();

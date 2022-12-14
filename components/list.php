@@ -1,16 +1,34 @@
-<div class="product-list">
-	<?php
-	require("./config/bd.php");
+<div class="product-list" id="list">
 
-	$result = $mysqli->query("SELECT * FROM card");
-
-	foreach ($result as $id => $row) {
-	    $name = $row["name"];
-	    $cost = $row["cost"];
-	    $url = $row["picture_url"];
-	    $id = $row["id"];
-	    include("./components/product.php");
-	}
-	$mysqli->close();
-	?>
 </div>
+
+<script>
+    const renderCard = ({
+        id,
+        picture_url,
+        name,
+        cost,
+    }) => `<a class="product" href="index.php?id=${id}">
+<img src="${picture_url}" />
+<h3>${name}</h3>
+<span>${cost} RUB</span>
+<div class="product-colors">
+    <div class="product-color"></div>
+    <div class="product-color"></div>
+    <div class="product-color"></div>
+</div>
+</a>`;
+
+
+    const req = new XMLHttpRequest();
+    req.responseType = 'json';
+    req.open('GET', "endpoints/get-cards.php", true);
+    req.onload = function() {
+        const jsonResponse = req.response;
+        const root = document.getElementById("list");
+        jsonResponse.forEach(element => {
+            root.insertAdjacentHTML("beforeend", renderCard(element));
+        });
+    };
+    req.send(null);
+</script>

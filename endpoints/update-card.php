@@ -6,6 +6,10 @@ $name = $_POST["name"];
 $cost = $_POST["cost"];
 $picture_url = $_POST["picture_url"];
 
+if($cost <= 0){
+    die("Некорректная цена");
+}
+
 $set = $mysqli->prepare("UPDATE card SET name = ?, cost = ?, picture_url = ? WHERE id = ?");
 $set->bind_param("sdss", $name, $cost, $picture_url,$id);
 

@@ -148,7 +148,7 @@ div p {
 
 .product {
 	width: 180px;
-	height: 320px;
+	height: 310px;
 }
 
 .content h2 {
@@ -164,19 +164,6 @@ div p {
 .product h3 {
 	margin-top: 8px;
 	margin-bottom: 8px;
-}
-
-.product-colors {
-	display: flex;
-	gap: 12px;
-	margin-top: 6px;
-}
-
-.product-color {
-	height: 12px;
-	width: 12px;
-	border-radius: 100%;
-	background-color: red;
 }
 
 .product-list {
@@ -299,8 +286,9 @@ div p {
 }
 
 .card-control {
-	margin-top: 20px;
-	padding: 10px 4px;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	padding: 0px 4px;
 	display: flex;
 	align-items: center;
 	box-sizing: border-box;
